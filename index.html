@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator Using Tailwind</title>
+</head>
+
+<body>
+    <h1 class="font-extrabold text-center"> CALCULATOR </h1>
+    <div class="container bg-black text-center mx-auto flex flex-col w-[18rem] h-[38rem] pt-60 rounded-[2.5rem] shadow-lg shadow-black outline-red-600">
+        <!-- <hr> -->
+        <div class="row">
+            <input type="text" class="px-6 py-2 -translate-y-4 bg-gray-500 ht-10 rounded-lg font-bold text-white  hover:shadow-red-600 shadow-lg  outline-none hover:border-red-400 border-4 border-black">
+        </div>
+        <div class="row-1 mb-2">
+            <button class="button bg-gray-400 text-black border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg hover:border-red-400 border-2 hover:bg-red-300">AC</button>
+            <button class="button bg-gray-400 text-black border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg hover:border-red-400 border-2">+/-</button>
+            <button class="button bg-gray-400 text-black border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg hover:border-red-400 border-2">%</button>
+            <button class="button text-2xl bg-yellow-400 hover:bg-yellow-500 border-b-8 border-yellow-600 hover:shadow-blue-600 shadow-lg hover:border-blue-400 border-2">/</button>
+        </div>
+        <div class="row-2 mb-1">
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">7</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">8</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">9</button>
+            <button class="button bg-yellow-400 hover:bg-yellow-500 border-b-8 border-yellow-600 hover:shadow-blue-600 shadow-lg  hover:border-blue-400 border-2">*</button>
+        </div>
+        <div class="row-3 mb-1">
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">4</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">5</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">6</button>
+            <button class="button bg-yellow-400 hover:bg-yellow-500 text-3xl border-b-8 border-yellow-600 hover:shadow-blue-600 shadow-lg hover:border-blue-400 border-2 ">-</button>
+        </div>
+        <div class="row-4 mb-1">
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">1</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">2</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">3</button>
+            <button class="button bg-yellow-400 hover:bg-yellow-500 text-3xl border-b-8 border-yellow-600 hover:shadow-blue-600 shadow-lg hover:border-blue-400 border-2">+</button>
+        </div>
+        <div class="row-5 ">
+            <button class="button w-32 border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-neutral-400 hover:border-red-400 border-2">0</button>
+            <button class="button border-b-8 border-gray-500 hover:shadow-red-600 shadow-lg bg-zinc-600 hover:border-red-400 border-2">.</button>
+            <button class="button bg-yellow-400 hover:bg-yellow-500 text-3xl border-b-8 border-yellow-600 hover:shadow-green-700 shadow-lg hover:border-green-600 border-2">=</button>
+        </div>
+    </div>
+
+    <script>
+        console.log("RELAX");
+        let string = "";
+        let buttons = document.querySelectorAll(".button");
+        let input =document.querySelector("input");
+        Array.from(buttons).forEach((button) => {
+            button.addEventListener('click', (e) => {
+                // THIS IS FOR VALUE EQULATE
+                if (e.target.innerHTML == '=') {
+                    string = eval(string);
+                   input.value = string;
+                }
+                // THIS IS FOR CLEAR VALUE 
+                else if (e.target.innerHTML == 'AC') {
+                    string = " ";
+                   input.value = string;
+                }
+                else { //ELSE M LIKNE SE YE = PRINT NHI HOGA ALG SE
+
+                    // console.log(e.target);
+                    string = string + e.target.innerHTML;
+                    input.value = string;
+                }
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>
